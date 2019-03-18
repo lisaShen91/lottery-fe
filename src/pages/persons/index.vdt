@@ -1,0 +1,32 @@
+import {Select, Option} from 'kpc/components/select';
+
+const {persons, currentPage} = self.get();
+<t:parent>
+    <b:content>
+        <table class="person-content">
+            <thead>
+            <tr>
+                <td>工号</td>
+                <td>姓名</td>
+                <td>一级部门</td>
+                <td>二级部门</td>
+                <td>三级部门</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for={{ persons }}>
+                <td>{{ value.employNumber }}</td>
+                <td>{{ value.name }}</td>
+                <td>{{ value.departmentLevel1 }}</td>
+                <td>{{ value.departmentLevel2 }}</td>
+                <td>{{ value.departmentLevel3 }}</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td>总计：{{ persons.length }}</td>
+            </tr>
+            </tfoot>
+        </table>
+    </b:content>
+</t:parent>

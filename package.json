@@ -1,0 +1,49 @@
+{
+  "name": "choujiang",
+  "version": "1.0.0",
+  "description": "choujiang app",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server"
+  },
+  "keywords": [
+    "分布式数据库"
+  ],
+  "author": "shenlisha",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.1.0",
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "http-proxy-middleware": "^0.18.0",
+    "postcss-loader": "^2.1.6",
+    "style-loader": "^0.21.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "url-loader": "^1.0.1",
+    "vdt": "^1.3.1",
+    "vdt-loader": "^1.5.1",
+    "webpack": "^4.16.3",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "director": "^1.2.8",
+    "downloadjs": "^1.4.7",
+    "highcharts": "^6.2.0",
+    "intact": "^2.4.2",
+    "jquery": "^3.3.1",
+    "kpc": "^0.7.7",
+    "underscore": "^1.9.1"
+  }
+}

@@ -1,0 +1,54 @@
+import Button from 'kpc/components/button';
+import {Select, Option} from 'kpc/components/select';
+import {Row, Col} from 'kpc/components/grid';
+
+const {
+    members, start, presents, currentPresent,
+    currentPresentDetail, winners, remaining,
+    currentPage, pages, originalPresents, initDraw,
+    initedDraw
+} = self.get();
+<t:parent>
+    <b:content>
+        <div class="container">
+            <!--展示中奖名单-->
+            <div class="winners-list">
+                <ul>
+                    <li v-for={{ winners }} class="winners-names">{{ value.name }}</li>
+                </ul>
+            </div>
+            <!--选择当前抽奖奖品-->
+            <div class="operate-btns">
+                <Select v-model="currentPresent" name="present" class="select-present">
+                    <Option v-for={{ presents }} value={{ value.value }}>{{ value.name }}</Option>
+                </Select>
+                <p>
+                <span class="current-present">
+                    抽奖轮次: {{ currentPresentDetail && currentPresentDetail.level }}
+                </span>
+                    <button
+                        class="btn begin"
+                        ev-click={{ self.changeStatus.bind(self) }}
+                        ev-keyup={{ self.changeStatus.bind(self) }}
+                    >
+                        {{ start ? '暂停' : '开始抽奖' }}
+                    </button>
+                </p>
+                <p>
+                    <button class="btn" ev-click={{ self.downloadData.bind(self) }}>
+                        导出名单
+                    </button>
+                    <button class="btn" ev-click={{ self.getPresents.bind(self) }}>
+                        更新奖品列表
+                    </button>
+                    <button class="btn" ev-click={{ self.updatePersons.bind(self) }}>
+                        确认当次抽奖有效
+                    </button>
+                    <button class="btn" ev-click={{ self.rmWinners.bind(self) }}>
+                        取消人员
+                    </button>
+                </p>
+            </div>
+        </div>
+    </b:content>
+</t:parent>

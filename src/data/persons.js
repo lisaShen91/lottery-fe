@@ -1,0 +1,31 @@
+export default [
+    {
+        "employNumber": 1,
+        "name": "张三",
+        "departmentLevel1": "云存储",
+        "departmentLevel2": "存储",
+        "departmentLevel3": "存储",
+        "employType": "正式员工",
+        "type": 1,
+        "status": 1,
+    },
+    {
+        "employNumber": 2,
+        "name": "李四",
+        "departmentLevel1": "云存储",
+        "departmentLevel2": "存储",
+        "departmentLevel3": "存储",
+        "employType": "正式员工",
+        "type": 1,
+        "status": 1,
+    },
+    {
+        "employNumber": 3,
+        "name": "王五",
+        "departmentLevel1": "云存储",
+        "departmentLevel2": "存储",
+        "departmentLevel3": "存储",
+        "employType": "正式员工",
+        "type": 1,
+        "status": 1,
+    }];

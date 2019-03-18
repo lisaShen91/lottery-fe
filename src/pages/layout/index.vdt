@@ -1,0 +1,14 @@
+import {Select, Option} from 'kpc/components/select';
+import {Button} from 'kpc/components/button';
+
+const {currentPage, pages} = self.get();
+<div class="main-container">
+    <b:content>
+        <Button ev-click={{ self.jackpotInit.bind(self) }}>初始化数据</Button>
+    </b:content>
+    <div class="footer">
+        <Select v-model="currentPage" name="present" class="change-page">
+            <Option v-for={{ pages }} value={{ value.value }}>{{ value.name }}</Option>
+        </Select>
+    </div>
+</div>

@@ -1,0 +1,137 @@
+import {Form, FormItem} from 'kpc/components/form';
+import {Input} from 'kpc/components/input';
+import {Select, Option} from 'kpc/components/select';
+import {Button} from 'kpc/components/button';
+import {Tabs, Tab} from 'kpc/components/tabs';
+
+const {model, type, employTypes} = self.get();
+<t:parent>
+    <b:content>
+        <div class="add-info">
+            <Tabs v-model="type">
+                <Tab value="present">奖品</Tab>
+                <Tab value="person">成员</Tab>
+            </Tabs>
+            <div class="page-content add-person" v-if={{ type=== 'person' }}>
+                <Form ref="addPerson" labelWidth="100" class="form">
+                <FormItem
+                    label="工号:"
+                    model="model.employNumber"
+                    rules={{ {required: true} }}
+                >
+                    <Input v-model="model.employNumber"/>
+                </FormItem>
+                <FormItem
+                    label="姓名:"
+                    model="model.name"
+                    rules={{ {required: true} }}
+                >
+                    <Input v-model="model.name"/>
+                </FormItem>
+                <FormItem
+                    label="一级部门:"
+                    model="model.departmentLevel1"
+                    rules={{ {required: true} }}
+                >
+                    <Input v-model="model.departmentLevel1"/>
+                </FormItem>
+                <FormItem
+                    label="二级部门:"
+                    model="model.departmentLevel2"
+                    rules={{ {required: true} }}
+                >
+                    <Input v-model="model.departmentLevel2"/>
+                </FormItem>
+                <FormItem
+                    label="三级部门:"
+                    model="model.departmentLevel3"
+                    rules={{ {required: true} }}
+                >
+                    <Input v-model="model.departmentLevel3"/>
+                </FormItem>
+                <FormItem
+                    label="员工类别:"
+                    model="model.employType"
+                    rules={{ {required: true} }}
+                >
+                    <Select v-model="model.employType">
+                        <Option v-for={{ employTypes }} value={{ value.value }}>{{ value.name }}</Option>
+                    </Select>
+                </FormItem>
+            </Form>
+                <div class="details">
+                    <FormItem label="工号:">{{ model.employNumber }}</FormItem>
+                    <FormItem label="姓名:">{{ model.name }}</FormItem>
+                    <FormItem label="一级部门:">{{ model.departmentLevel1 }}</FormItem>
+                    <FormItem label="二级部门:">{{ model.departmentLevel2 }}</FormItem>
+                    <FormItem label="三级部门:">{{ model.departmentLevel3 }}</FormItem>
+                    <FormItem label="员工类别:">
+                        {{ (() => {
+                            let item = _.find(employTypes, item => item.value === model.employType);
+                            return item && item.name
+                        })() }}
+                    </FormItem>
+                </div>
+            </div>
+            <div class="page-content add-present" v-else>
+                <Form ref="addPresent" labelWidth="100" class="form">
+                    <FormItem
+                        label="奖品名称:"
+                        model="model.name"
+                        rules={{ {required: true} }}
+                    >
+                        <Input v-model="model.name"/>
+                    </FormItem>
+                    <FormItem
+                        label="奖品数量:"
+                        model="model.amount"
+                        rules={{ {required: true} }}
+                    >
+                        <Input v-model="model.amount"/>
+                    </FormItem>
+                    <FormItem
+                        label="取值:"
+                        model="model.value"
+                        rules={{ {required: true} }}
+                    >
+                        <Input v-model="model.value"/>
+                    </FormItem>
+                    <FormItem
+                        label="奖品等级:"
+                        model="model.level"
+                        rules={{ {required: true} }}
+                    >
+                        <Input v-model="model.level"/>
+                    </FormItem>
+                    <FormItem
+                        label="奖品图片:"
+                        model="model.imagePath"
+                        rules={{ {required: true} }}
+                    >
+                        <Input v-model="model.imagePath"/>
+                    </FormItem>
+                    <FormItem
+                        label="奖品图片:"
+                        model="model.status"
+                        rules={{ {required: true} }}
+                    >
+                        <Input v-model="model.status"/>
+                    </FormItem>
+                </Form>
+                <div class="details">
+                    <FormItem label="奖品名称:">{{ model.name }}</FormItem>
+                    <FormItem label="奖品数量:">{{ model.amount }}</FormItem>
+                    <FormItem label="取值:">{{ model.value }}</FormItem>
+                    <FormItem label="奖品等级:">{{ model.level }}</FormItem>
+                    <FormItem label="奖品图片:">{{ model.imagePath }}</FormItem>
+                </div>
+            </div>
+            <p>
+                <FormItem class="op-btn">
+                    <Button class="btn" type="primary" ev-click={{ self.submit.bind(self) }}>提交</Button>
+                    <Button type="default" ev-click={{ self.reset.bind(self) }}>重置</Button>
+                </FormItem>
+            </p>
+        </div>
+    </b:content>
+</t:parent>

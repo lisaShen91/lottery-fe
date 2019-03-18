@@ -1,0 +1,27 @@
+import {Select, Option} from 'kpc/components/select';
+const {presents, presentTotalAmount} = self.get();
+<t:parent>
+    <b:content>
+        <!--奖品页面-->
+        <table class="present-content">
+            <thead>
+            <tr>
+                <td>奖品</td>
+                <td>数量</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for={{ presents }}>
+                <td>{{ value.name }}</td>
+                <td>{{ value.amount }}</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td>奖品类型总计：{{ presents.length }}</td>
+                <td>数量总计： {{ presentTotalAmount }}</td>
+            </tr>
+            </tfoot>
+        </table>
+    </b:content>
+</t:parent>
