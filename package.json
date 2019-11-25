@@ -42,7 +42,7 @@
     "downloadjs": "^1.4.7",
     "highcharts": "^6.2.0",
     "intact": "^2.4.2",
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.0",
     "kpc": "^0.7.7",
     "underscore": "^1.9.1"
   }
