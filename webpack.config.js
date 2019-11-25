@@ -25,16 +25,19 @@ module.exports = {
             },
             {
                 test: /\.vdt$/,
-                use: [{
-                    loader: 'babel-loader'
-                }, {
-                    loader: 'vdt-loader',
-                    options: {
-                        skipWhitespace: true,
-                        noWith: true,
-                        delimiters: ['{{', '}}']
+                use: [
+                    {
+                        loader: 'babel-loader'
+                    },
+                    {
+                        loader: 'vdt-loader',
+                        options: {
+                            skipWhitespace: true,
+                            noWith: true,
+                            delimiters: ['{{', '}}']
+                        }
                     }
-                }],
+                ]
             },
             {
                 test: /\.(styl|css)$/,
@@ -46,10 +49,7 @@ module.exports = {
                         options: {
                             plugins: [
                                 autoprefixer({
-                                    browsers: [
-                                        'last 2 versions',
-                                        'ie >= 9'
-                                    ]
+                                    browsers: ['last 2 versions', 'ie >= 9']
                                 })
                             ]
                         }
@@ -60,20 +60,22 @@ module.exports = {
                             'include css': true,
                             sourceMap: false,
                             'resolve url': true,
-                            'import': path.resolve(__dirname, './node_modules/kpc/@stylus/styles/themes/ksyun/index.styl')
+                            import: path.resolve(__dirname, './node_modules/kpc/@stylus/styles/themes/ksyun/index.styl')
                         }
-                    },
+                    }
                 ]
             },
             {
-                test: /\.(woff2?|eot|ttf|otf|svg|png|jpg|gif)(\?.*)?$/,
-                use: [{
-                    loader: 'url-loader',
-                    /* options: {
-                     outputPath: './fonts/'
-                     }*/
-                }]
-            },
+                test: /\.(woff2?|eot|ttf|otf|svg|png|jpg|gif|jpeg)(\?.*)?$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            outputPath: './fonts/'
+                        }
+                    }
+                ]
+            }
         ]
     },
     plugins: [
@@ -83,24 +85,24 @@ module.exports = {
             template: 'index.html'
         }),
         new webpack.ProvidePlugin({
-            'Intact': 'intact',
-            '_': 'underscore',
-            '$': 'jquery',
-            'utils': path.resolve(__dirname, 'src/core/utils'),
-            'download': 'downloadjs'
+            Intact: 'intact',
+            _: 'underscore',
+            $: 'jquery',
+            utils: path.resolve(__dirname, 'src/core/utils'),
+            download: 'downloadjs'
         }),
         new webpack.HotModuleReplacementPlugin()
     ],
     mode: 'development',
     resolve: {
-        extensions: [".js"],
+        extensions: ['.js'],
         alias: {
-            'kpc': 'kpc/@stylus',
-            'src': path.resolve(__dirname, './src')
+            kpc: 'kpc/@stylus',
+            src: path.resolve(__dirname, './src')
         }
     },
     devServer: {
-        port: 8801
+        port: 8890
     },
     optimization: {
         splitChunks: {
