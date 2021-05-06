@@ -44,6 +44,6 @@
     "intact": "^2.4.2",
     "jquery": "^3.3.1",
     "kpc": "^0.7.7",
-    "underscore": "^1.9.1"
+    "underscore": "^1.12.1"
   }
 }
